@@ -1,0 +1,163 @@
+/**
+ * VARIABLES
+ */
+$color-primary: #005FA5;
+// $color-primary-light: #e2f1f9;
+$color-primary-dark: #00345B;
+$color-red: #ff4545;
+$color-blue: #0091FF;
+$color-blue-light: #EDF2F5;
+$color-text: #000;
+$color-text-gray: #777;
+$color-text-over: #667380;
+
+$color-alter: #A63332;
+$color-alter-darker: #005620;
+$color-yellow: #FF9933;
+$color-yellow-alter: #f7931e;
+$color-yellow-light: #ffff00;
+$color-yellow-light2: #fcee21;
+$color-orange : #f09c3b;
+$color-green: #0DB14B;
+$color-gray: #8A949D;
+$color-gray-light: #DCDFE2;
+$color-black: #1e1e1e;
+
+$color-facebook: #4267B2;
+$color-youtube: #ff0000;
+
+$font-primary: 'Open Sans', sans-serif;
+$font-alter: 'Roboto Slab', serif;
+$font-heading: 'UTM Avo', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+
+$width-container-max: 1170px; // 1140px contain width, 30px padding
+$is_mobile_first: false;
+
+$border-radius-lg: 10px;
+$border-radius-md: 6px;
+$border-radius-sm: 4px;
+
+@mixin media($type) {
+  @if $is_mobile_first == true {
+    @if $type == xs {
+      @content;
+    }
+    @else if $type == sm {
+      @media (min-width: 576px) { @content; }
+    }
+    @else if $type == md {
+      @media (min-width: 768px) { @content; }
+    }
+    @else if $type == lg {
+      @media (min-width: 992px) { @content; }
+    }
+    @else if $type == xl {
+      @media (min-width: 1200px) { @content; }
+    }
+  }
+  @else {
+    @if $type == xxs {
+      @media (max-width: 414.98px) { @content; }
+    }
+    @else if $type == xs {
+      @media (max-width: 575.98px) { @content; }
+    }
+    @else if $type == sm {
+      @media (max-width: 767.98px) { @content; }
+    }
+    @else if $type == md {
+      @media (max-width: 991.98px) { @content; }
+    }
+    @else if $type == lg {
+      @media (max-width: 1199.98px) { @content; }
+    }
+    @else if $type == xl {
+      @content;
+    }
+  }
+}
+@mixin media-min-width($type) {
+  @if $type == xs {
+    @content;
+  }
+  @else if $type == sm {
+    @media (min-width: 576px) { @content; }
+  }
+  @else if $type == md {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $type == lg {
+    @media (min-width: 992px) { @content; }
+  }
+  @else if $type == xl {
+    @media (min-width: 1200px) { @content; }
+  }
+}
+@mixin media-max-width($type) {
+  @if $type == xxs {
+    @media (max-width: 414.98px) { @content; }
+  }
+  @else if $type == xs {
+    @media (max-width: 575.98px) { @content; }
+  }
+  @else if $type == sm {
+    @media (max-width: 767.98px) { @content; }
+  }
+  @else if $type == md {
+    @media (max-width: 991.98px) { @content; }
+  }
+  @else if $type == lg {
+    @media (max-width: 1199.98px) { @content; }
+  }
+  @else if $type == xl {
+    @content;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * ICON MOON
+ */
+@mixin icomoon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * OTHERS
+ */
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

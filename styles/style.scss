@@ -1,0 +1,84 @@
+/*
+Theme Name: RubyTheme
+Theme URI: http://haibach.net/rubytheme
+Author: Nguyễn Văn Thy
+Author URI: http://haibach.net
+Description: RubyTheme - Theme hướng tới đơn giản, dễ sử dụng cho người mới, linh động cho thiết kế web, đáp ứng nhu cầu dễ sữa chữa và phát triển của các developer Wordpress.
+Requires at least: WordPress 4.9.6
+Version: 1.5
+Text Domain: rubytheme
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/**
+ * THEME CORE
+ */
+/* Variables & Mixins */
+@import '/scss/variables-mixins';
+
+/* Normalize */
+// @import 'normalize';
+@import '/scss/bootstrap-reboot';
+@import '/scss/icomoon';
+
+/* Bootstrap Custom Grid */
+@import '/scss/bootstrap-grid';
+@import '/scss/grid';
+
+/* Template Reset */
+// @import 'bootstrap';
+@import '/scss/reset';
+@import '/scss/wp-block';
+@import '/scss/form';
+// @import '/scss/sidebar';
+@import '/scss/layout';
+@import '/scss/animation-keyframes';
+// @import '/scss/plugin/rubyslider';
+// @import '/scss/plugin/rubybox';
+// @import '/scss/plugin/collapse-purejs';
+// @import '/scss/plugin/ion-rangeSlider';
+
+/* Header */
+@import '/scss/header';
+@import '/scss/menu-vertical';
+@import '/scss/menu-hanger';
+@import '/scss/menu-drawer';
+@import '/scss/menu-hamburger';
+@import '/scss/headingtop';
+@import '/scss/breadcrumb';
+
+/* Footer */
+@import '/scss/footer';
+
+/* FrontPage */
+@import '/scss/frontpage/frontpage';
+@import '/scss/frontpage/mv';
+
+/* Pages */
+@import '/scss/page/page-404';
+@import '/scss/page/page-contact';
+@import '/scss/page/page-recruit';
+
+/* Page Single */
+@import '/scss/pagination';
+@import '/scss/category';
+@import '/scss/tag';
+@import '/scss/single';
+@import '/scss/single-blog';
+@import '/scss/page';
+
+/* Small Templates */
+@import '/scss/layout-vertical';
+@import '/scss/small-templates/template-columns';
+@import '/scss/small-templates/template-map';
+@import '/scss/small-templates/template-table';
+@import '/scss/small-templates/template-accordion';
+@import '/scss/small-templates/template-process';
+@import '/scss/small-templates/template-form';
+@import '/scss/small-templates/template-blog';
+@import '/scss/small-templates/item-project';
+@import '/scss/small-templates/item-property';
+@import '/scss/small-templates/item-blog';

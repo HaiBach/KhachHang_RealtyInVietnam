@@ -1,0 +1,477 @@
+/** FOOTER **/
+.site-footer {
+  .footer__top {
+    background-color: $color-primary-dark;
+    color: #fff;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .footer__top {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+}
+
+
+
+
+
+/**
+ * MENU FOOTER TOP
+ */
+.menu-footer-top {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  li {
+    list-style-type: none;
+  }
+  a {
+    &:hover {
+      text-decoration: none;
+      opacity: 0.5;
+    }
+  }
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    > .menu-item, .--menu-lv1 {
+      > a {
+        display: inline-block;
+        padding: 3px 0;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.3);
+        font-size: 2.1rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    }
+  }
+  .sub-menu {
+    > .menu-item {
+      > a {
+        display: inline-block;
+        padding: 5px 0;
+        color: rgba($color: #fff, $alpha: 0.5);
+        text-decoration: none;
+      }
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    padding-top: 30px;
+    padding-bottom: 1px;
+    .menu {
+      display: block;
+      > .menu-item, .--menu-lv1 {
+        margin-bottom: 30px;
+        > a {
+          margin-bottom: 10px;
+          font-size: 1.6rem;
+          &::before {
+            display: none;
+          }
+        }
+      }
+      .--menu-lv1 {
+        margin-bottom: 0;
+      }
+    }
+    .sub-menu {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -15px;
+      margin-right: -15px;
+      > .menu-item {
+        width: 50%;
+        padding-left: 15px;
+        padding-right: 15px;
+        > a {
+          &::before {
+            content: '•';
+            padding-right: 8px;
+            font-size: 1.2em;
+            line-height: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+/**
+ * FOOTER BOOTTOM
+ */
+.footer__bottom {
+  background-color: $color-primary-dark;
+  color: #fff;
+  .__inner {
+    padding-top: 50px;
+    border-top: 1px dashed rgba($color: #fff, $alpha: 0.25);
+  }
+  .__logo {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .__address_inner {
+    display: flex;
+  }
+  .__address_text {
+    padding-top: 20px;
+    margin-right: 80px;
+  }
+  .__txt {
+    position: relative;
+    padding-right: 80px;
+    &::before {
+      content: '';  
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: rgba($color: #fff, $alpha: 0.25);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: calc(50% - 5px);
+      width: 11px;
+      height: 11px;
+      border-radius: 100px;
+      background-color: #fff;
+    }
+    p {
+      line-height: 1.8;
+    }
+    a {
+      text-decoration: none;
+    }
+    strong {
+      font-weight: 600;
+    }
+  }
+  .__address_map {
+    overflow: hidden;
+    min-width: 600px;
+    border-radius: 12px;
+    a {
+      display: block;
+    }
+  }
+  .__copyright {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .copyright {
+    color: rgba($color: #fff, $alpha: 0.5);
+    font-size: 1.4rem;
+    text-align: center;
+    letter-spacing: 1.2px;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .__inner {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .__logo {
+      margin-bottom: 30px;
+      img {
+        width: auto;
+        max-height: 14px;
+      }
+    }
+    .__address_inner {
+      display: block;
+    }
+    .__address_map {
+      min-width: auto;
+    }
+    .__address_text {
+      padding: 0 12px;
+      margin-right: 0;
+    }
+    .__txt {
+      padding-right: 0;
+      margin-bottom: 30px;
+      color: rgba($color: #fff, $alpha: 0.5);
+      &::before, &::after {
+        display: none;
+      }
+    }
+    .__copyright {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      border-top: 1px dashed rgba($color: #fff, $alpha: 0.25);
+    }
+    .copyright {
+      color: rgba($color: #fff, $alpha: 0.3);
+      font-size: 1.2rem;
+      letter-spacing: 0;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/** BACK TO TOP **/
+#back-to-top {
+  position: fixed;
+  right: 0;
+  bottom: 15px;
+  z-index: 9;
+  .scroll-inner {
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    color: $color-primary;
+    font-size: 2.4rem;
+    text-align: center;
+    text-indent: -99999px;
+    transition: all 0.2s;
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+    box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.05);
+    cursor: pointer;
+    &::after {
+      @include icomoon;
+      content: "\e906";
+      position: absolute;
+      left: 2px;
+      top: calc(50% - 10px);
+      width: 100%;
+      text-indent: 0;
+    }
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+  &.fixed-actived {
+    .scroll-inner {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    right: auto;
+    left: 0;
+    .scroll-inner {
+      width: 54px;
+      height: 54px;
+      border-radius: 0 4px 4px 0;
+      transform: translate3d(-100px, 0, 0);
+      &::after {
+        left: 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/** FLOATING **/
+.floating {
+  position: fixed;
+  right: 15px;
+  bottom: 25px;
+  z-index: 9;
+  .scroll-inner {
+    transition: all 0.2s;
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+    box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.05);
+    cursor: pointer;
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+  .floating__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    border-radius: $border-radius-md;
+    background-color: $color-primary;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.4;
+    box-shadow: 0 1px 1px rgba($color: #000, $alpha: 0.25);
+    &:hover {
+      text-decoration: none;
+      animation: animate-tada 1s ease 3;
+    }
+  }
+  .floating__icon {
+    position: absolute;
+    left: -34px;
+    // top: -4px;
+    top: calc(50% - 28px);
+    display: block;
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    border: 2px solid $color-primary;
+    background-color: #fff;
+    color: $color-primary;
+    font-size: 24px;
+    line-height: 46px;
+    text-align: center;
+    [class*="icon-"] {
+      padding-right: 0;
+      vertical-align: middle;
+    }
+  }
+  .floating__text {
+    display: block;
+    padding-left: 15px;
+  }
+  .floating__num {
+    // font-size: 16px; // Kích thước chuẩn - 8 số
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  &.fixed-actived {
+    .scroll-inner {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    right: 8px;
+    bottom: 20px;
+    .floating__link {
+      padding: 3px 8px;
+    }
+    .floating__icon {
+      left: -26px;
+      // top: -4px;
+      top: calc(50% - 21px);
+      width: 42px;
+      height: 42px;
+      font-size: 18px;
+      line-height: 36px;
+    }
+    .floating__text {
+      padding-left: 10px;
+      font-size: 9px;
+    }
+
+    .floating__num {
+      // font-size: 11px;
+      font-size: 9px;
+    }
+  }
+}
+
+
+
+
+
+
+/**
+ * FACEBOOK MESSAGER
+ */
+// .fb-messager {
+//   .scroll-inner {
+//     // transition: all 0.2s;
+//     // opacity: 0;
+//   }
+//   // iframe {
+//   //   bottom: 140px !important;
+//   // }
+//   &.fixed-actived {
+//     .scroll-inner {
+//       // opacity: 1;
+//       // transform: translate3d(0, 0, 0);
+//     }
+//   }
+
+//   // .fb_dialog {
+//   //   right: 15px !important;
+//   //   bottom: 80px !important;
+//   // }
+
+//   /** MEDIA **/
+//   @include media(sm) {
+//     .fb_dialog {
+//       right: 8px !important;
+//       // bottom: 60px !important;
+//       bottom: 54px !important;
+//       transform: scale(0.85);
+//     }
+//     iframe {
+//       right: 0 !important;
+//       // bottom: 120px !important;
+//       bottom: 110px !important;
+//     }
+//   }
+// }
+
+// iframe.fb_customer_chat_bounce_in_v2,
+// iframe.fb_customer_chat_bounce_out_v2  {
+//     left: 10px !important;
+// }
+
+// .fb_dialog.fb_dialog_advanced {
+//     left: calc(10px * 2) !important;
+// }
+
+
+
+
+
+/** ẨN FLOATING Ở MỘT SỐ TRANG **/
+// .page-category,
+// .page-tag,
+// .page-single,
+// .page-entry {
+//   & ~ .floating {
+//     display: none;
+//   }
+//   & ~ .fb-messager {
+//     .fb_dialog {
+//       bottom: 20px !important;
+//     }
+//     iframe {
+//       bottom: 80px !important;
+//     }
+//   }
+// }

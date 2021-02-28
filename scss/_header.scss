@@ -1,0 +1,470 @@
+/** HEADER **/
+.site-branding {
+  background-color: rgba($color: #fff, $alpha: 1);
+}
+.site-branding-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-logo {
+  a {
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: opacity 0.6s;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.5;
+    }
+  }
+  svg, .st0 {
+    // fill: $color-black;
+  }
+  .tagline {
+    padding-left: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /** MEDIA **/
+  @include media(md) {
+    .tagline {
+      padding-left: 8px;
+      font-size: 0.8rem;
+    }
+  }
+  @include media(sm) {
+    a {
+      min-height: 60px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      img {
+        display: block;
+        width: auto;
+        max-height: 13px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+ * HEADER TOP
+ * Thanh chứa btn search và social icon
+ */
+#masthead-top {
+  background-color: $color-primary-dark;
+  .__header_inner {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .__search {
+    .btn {
+      a {
+        min-width: 200px;
+        border-radius: 0;
+        &:hover {
+          background-color: #000;
+        }
+      }
+    }
+  }
+  .__social {
+    ul {
+      display: flex;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    li {
+      list-style-type: none;
+      &:last-child {
+        a::after {
+          display: none;
+        }
+      }
+    }
+    a {
+      position: relative;
+      display: block;
+      min-width: 80px;
+      padding: 9px 20px 9px;
+      color: rgba($color: #fff, $alpha: 0.5);
+      font-size: 18px;
+      line-height: 1;
+      text-align: center;
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 9px;
+        width: 1px;
+        height: calc(100% - 16px);
+        background: #fff;
+        opacity: 0.3;
+        transition: height 0.2s;
+      }
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+    [class*="icon-"] {
+      padding-right: 0;
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .__header_inner {
+      justify-content: center;
+    }
+    .__search {
+      display: none;
+    }
+    .__social {
+      a {
+        padding: 7px 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * SCROLL FIXED
+ * Làm cho vị trí của header fixed.
+ * Scroll qua vị trí chỉ định thì sẽ chuyển sang `position: fixed`
+ */
+.header-scroll-fixed {
+  position: relative;
+  .scroll-inner {
+    position: relative;
+    width: 100%;
+    z-index: 99;
+  }
+
+  /** FIXED ENABLE - ĐỦ ĐIỀU KIỆN ĐỂ SCROLL FIXED HOẠT ĐỘNG **/
+  &.fixed-enabled {
+    .scroll-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+ 
+  /** FIXED ACTIVED - KHI SCROLL FIXED KÍCH HOẠT **/
+  &.fixed-actived {
+    .scroll-inner {
+      position: fixed;
+      background-color: rgba($color: #fff, $alpha: 0.75);
+      box-shadow: 0 1px 2px rgba($color: #000, $alpha: 0.1);
+      animation: headerMoveDown 0.2s both;
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+  }
+ 
+  // Dành cho PC
+  @include media-min-width(md) {
+    
+    /** FIXED ACTIVED **/
+    &.fixed-actived {
+      .rm01.rm01.rm01hanger .rm01list {
+        a {
+          padding-top: 17px;
+          padding-bottom: 17px;
+        }
+      }
+    }
+  }
+
+  // Dành cho SP
+  @include media(md) {
+    &.fixed-actived {
+      .header-logo {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+      }
+    }
+  }
+  @include media(sm) {
+    &.fixed-actived {
+      .rm01.rm01drawer .menu-inner {
+        height: calc(100vh - 40px);
+      }
+    }
+  }
+}
+
+/** Fixed: Không hỗ trợ backdrop-filter **/
+.no-backdropfilter {
+  .header-scroll-fixed.fixed-actived {
+    .scroll-inner {
+      background-color: rgba($color: #fff, $alpha: 0.95);
+    }
+  }
+}
+
+@keyframes headerMoveDown {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes headerMoveTop {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/** Fixed khi có admin bar **/
+// Dành cho PC
+body.admin-bar {
+  .header-scroll-fixed.fixed-actived {
+    .scroll-inner {
+      margin-top: 32px;
+
+      /** MEDIA **/
+      @media (max-width: 782px) {
+        margin-top: 46px;
+      }
+      @media (max-width: 599px) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/** NAVIGATION HEADER **/
+.rm01 {
+  display: none;
+}
+
+
+
+
+
+.main-navigation {
+  .menu-header {
+    .menu {
+      display: flex;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .menu-item {
+      display: block;
+      list-style-type: none;
+    }
+    a {
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-decoration: none;
+      &:hover {
+        background-color: rgba($color: #000, $alpha: 0.1);
+        color: $color-text;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+/** KHI MENU DRAWER PUSH **/
+/**
+ * Thiết lập menu luôn ở vị trĩ fixed
+ * Thay đổi background
+ */
+html.rm01push {
+  @include media(xs) {
+    .header-scroll-fixed {
+      .site-branding {
+        position: fixed;
+        // background-color: rgba($color: $color-black, $alpha: 0.95) !important;
+        margin-top: 0 !important; /* Fixed wpadminbar */
+      }
+      .scroll-inner {
+        left: 0;
+        top: 0;
+        backdrop-filter: none;
+        box-shadow: none;
+      }
+      .tagline {
+        color: #fff;
+        font-weight: 400;
+      }
+    }
+    .header-logo {
+      svg, .st0 {
+        // fill: #fff;
+      }
+    }
+    #wpadminbar {
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/** RUBY MENU ANIMATION **/
+[class*=rm01anim-] {
+  position: relative;
+}
+.rm01.rm01push {
+  [class*=rm01anim-] {
+    opacity: 0;
+    // animation: animate-zoom 0.4s forwards;
+    animation-name: animate-zoom;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+  }
+  &::before {
+    opacity: 0;
+    // animation: animate-slideToRight 0.2s forwards;
+    animation-name: animate-slideToRight;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+  .menu-inner {
+    &::before {
+      opacity: 0;
+      // animation: animate-slideToLeft 0.4s forwards;
+      animation-name: animate-slideToRight;
+      animation-duration: 0.4s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+.rm01anim-1 {
+  animation-delay: 0s !important;
+}
+.rm01anim-2 {
+  animation-delay: 0.05s !important;
+}
+.rm01anim-3 {
+  animation-delay: 0.1s !important;
+}
+.rm01anim-4 {
+  animation-delay: 0.15s !important;
+}
+.rm01anim-5 {
+  animation-delay: 0.2s !important;
+}
+.rm01anim-6 {
+  animation-delay: 0.25s !important;
+}
+.rm01anim-7 {
+  animation-delay: 0.3s !important;
+}
+.rm01anim-8 {
+  animation-delay: 0.35s !important;
+}
+.rm01anim-9 {
+  animation-delay: 0.4s !important;
+}
+.rm01anim-10 {
+  animation-delay: 0.45s !important;
+}
+
+/** ANIMATE KEYFRAMES **/
+@keyframes animate-zoom {
+  0% { opacity: 0; transform: perspective(800px) translate3d(0, 0, -1000px); }
+  100% { opacity: 1; transform: perspective(800px) translate3d(0, 0, 0); }
+}
+@keyframes animate-slideToLeft {
+  0% { opacity: 0; transform: translate3d(-100%, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes animate-slideToLeft2x {
+  0% { opacity: 0; transform: translate3d(-200%, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes animate-slideToRight {
+  0% { opacity: 0; transform: translate3d(200%, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes animate-slideToRight2x {
+  0% { opacity: 0; transform: translate3d(200%, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/** RUBYMENU KEYFRAMES **/
+@keyframes rm01open-slideOut {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rm01open-slideIn {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes rm01closed-slideOut {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes rm01closed-slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+}

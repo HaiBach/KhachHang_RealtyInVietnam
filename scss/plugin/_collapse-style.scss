@@ -1,0 +1,72 @@
+/**
+ * COLLAPSE PUREJS - STYLE
+ */
+.collapse-toggle {
+  position: relative;
+  .collapse-toggle-caret {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin-top: -10px;
+    border: 7px solid $color-yellow-light2;
+    border-radius: 50px;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      border-radius: 2px;
+      background-color: $color-yellow-light2;
+      transition: all 0.2s;
+    }
+    &::before {
+      left: calc(50% - 12px);
+      top: calc(50% - 3px);
+      width: 24px;
+      height: 7px;
+      transform: rotate(180deg);
+    }
+    &::after {
+      left: calc(50% - 4px);
+      top: calc(50% - 12px);
+      width: 7px;
+      height: 24px;
+      transform: rotate(90deg);
+    }
+  }
+
+  /* Callapse Actived */
+  &.collapse-actived {
+    .collapse-toggle-caret {
+      &::before {
+        transform: rotate(0);
+      }
+      &::after {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  /* Media Breakpoint */
+  @include media(xs) {
+    .collapse-toggle-caret {
+      margin-top: -4px;
+      width: 36px;
+      height: 36px;
+      border-width: 5px;
+      &::before {
+        left: calc(50% - 8px);
+        top: calc(50% - 2px);
+        width: 16px;
+        height: 4px;
+      }
+      &::after {
+        left: calc(50% - 2px);
+        top: calc(50% - 8px);
+        width: 4px;
+        height: 16px;
+      }
+    }
+  }
+}

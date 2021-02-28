@@ -1,0 +1,22 @@
+/**
+ * TEMPLATE MAP
+ */
+.template-map {
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 50px;
+  iframe {
+    display: block;
+    width: 100%;
+    height: 500px;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    margin: 0 -12px 30px;
+    border-radius: 0;
+    iframe {
+      height: 400px;
+    }
+  }
+}

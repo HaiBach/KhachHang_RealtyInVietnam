@@ -1,0 +1,55 @@
+/**
+ * TEMPLATE COLUMNS
+ */
+.template-blog {
+  margin-bottom: 50px;
+  .__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .__right {
+    display: flex;
+    align-items: center;
+  }
+  .__post_count {
+    color: #666;
+    font-size: 1.4rem;
+  }
+  .__view_all {
+    margin-left: 15px;
+  }
+  .__no_post {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .__item {
+    width: 33.3%;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    margin-bottom: 30px;
+    .topic-h2 {
+      margin-bottom: 30px;
+    }
+    .__list {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .__item {
+      width: 100%;
+    }
+    .__post_count {
+      font-size: 1.2rem;
+    }
+  }
+}

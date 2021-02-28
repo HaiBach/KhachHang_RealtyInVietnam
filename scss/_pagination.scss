@@ -1,0 +1,99 @@
+/**
+ * PAGINATION + WOOCOMMERCE PAGINATION
+ */
+ .pagination {
+  margin-top: 40px;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  li {
+    list-style-type: none;
+  }
+  a, span {
+    display: block;
+    min-width: 56px;
+    padding: 14px 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 10px;
+    background-color: rgba($color: #000, $alpha: 0.06);
+    color: #444;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    &.current {
+      background-color: rgba($color: #000, $alpha: 0.75);
+      color: #fff;
+    }
+  }
+  a {
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  [class*="icon-"] {
+    font-size: 0.85em;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    margin-top: 35px;
+    a, span {
+      min-width: 44px;
+      padding: 10px 15px;
+    }
+  }
+}
+
+.woocommerce-pagination {
+  margin-bottom: 80px;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  li {
+    list-style-type: none;
+  }
+  a, span {
+    display: block;
+    min-width: 56px;
+    padding: 14px 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: $border-radius-md;
+    background-color: rgba($color: #000, $alpha: 0.06);
+    color: #444;
+    font-weight: 700;
+    text-align: center;
+    &.current {
+      background-color: rgba($color: #000, $alpha: 0.75);
+      color: #fff;
+    }
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  [class*="icon-"] {
+    font-size: 0.85em;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    margin-top: 35px;
+    a, span {
+      min-width: 44px;
+      padding: 10px 15px;
+    }
+  }
+}

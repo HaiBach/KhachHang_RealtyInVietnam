@@ -1,0 +1,47 @@
+/**
+ * WIDGET WORDPRESS
+ */
+
+/**
+ * TAG CLOUD
+ */
+ .tagcloud {
+  display: flex;  
+  flex-wrap: wrap;
+  a {
+    display: block;
+    min-width: 100px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 100px;
+    border: 1px solid #7A7A7A;
+    background-color: #fff;
+    color: #7A7A7A;
+    font-size: 0.85em !important;
+    line-height: 1.2;
+    text-align: center;
+    &:hover {
+      background-color: #7A7A7A;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * WIDGET DIVISION
+ */
+.--division {
+  margin-bottom: 60px;
+} 

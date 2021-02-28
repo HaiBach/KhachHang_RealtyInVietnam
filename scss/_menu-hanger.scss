@@ -1,0 +1,168 @@
+/**
+ * MENU HANGER - DÀNH CHO PC
+ */
+.rm01hanger {
+  display: block;
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    ul {
+      display: none;
+    }
+  }
+  li {
+    display: block;
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  /** MENU LEVEL 1 **/
+  .rm01menu-lv1 {
+    display: flex;
+  }
+  .rm01list-lv1 {
+    position: relative;
+    > .rm01link {
+      > a {
+        display: block;
+        padding: 12px 20px;
+        margin-left: 1px;
+        margin-right: 1px;
+        border-radius: 8px;
+        color: #333;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        transition: all 0.2s;
+        &:hover {
+          background-color: rgba($color: #000, $alpha: 0.1);
+          color: #000;
+        }
+        [class*=icon-] {
+          font-size: 0.75em;
+        }
+        &::before {
+          content: '';
+          background-color: transparent;
+          position: absolute;
+          top: -16px;
+          left: 0;
+          height: calc(100% + 32px);
+          width: 100%;
+        }
+      }
+    }
+    
+    &.current-menu-item,
+    &.current-menu-parent,
+    &.current-category-ancestor,
+    &.current-page-ancestor,
+    &.current-post-ancestor {
+      > .rm01link {
+        a {
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: calc(50% - 3px);
+            width: 6px;
+            height: 6px;
+            border-radius: 100px;
+            background-color: rgba($color: $color-black, $alpha: 0.75);
+          }
+        }
+      }
+      .rm01list-lv2 a::after {
+        display: none;
+      }
+    }
+  }
+  
+  /** MENU LEVEL 2 **/
+  .rm01menu-lv2 {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 17px);
+    display: none;
+    // display: block;
+    min-width: 280px;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    // transition: all 0.15s;
+    // transform: translate3d(0, 50px, 0);
+    // opacity: 0;
+  }
+  .rm01link:hover + .rm01menu, .rm01menu-lv2:hover {
+    display: block;
+    // transform: translate3d(0, 0, 0);
+    // opacity: 1;
+  }
+  .rm01list-lv2 {
+    a {
+      display: block;
+      padding: 13px 20px;
+      margin-left: 1px;
+      margin-right: 1px;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: all 0.2s;
+      &:hover {
+        background-color: rgba($color: #000, $alpha: 0.1);
+        color: #000;
+      }
+      [class*=icon-] {
+        font-size: 0.75em;
+      }
+    }
+  }
+  .rm01listback {
+    display: none;
+  }
+
+  /** MEDIA **/
+  @include media(lg) {
+    .rm01list-lv1 {
+      a {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    .menu-entry {
+      a {
+        min-width: 150px;
+      }
+    }
+  }
+  @include media(md) {
+    .rm01list-lv1 {
+      a {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 1.2rem;
+      }
+    }
+    .menu-entry {
+      a {
+        min-width: 120px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  @include media(sm) {
+    .menu-entry {
+      .small {
+        display: block;
+      }
+      [class*=icon-] {
+        display: block;
+      }
+    }
+  }
+}

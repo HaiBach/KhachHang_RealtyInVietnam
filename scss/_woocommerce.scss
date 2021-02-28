@@ -1,0 +1,936 @@
+/**
+ * CSS TẠM THỜI
+ */
+#reviews {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * WOOCOMMERCE MESSAGE
+ */
+.woocommerce-notices-wrapper {
+  // margin-top: 40px;
+  // margin-bottom: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.woocommerce-message {
+  padding: 10px 15px;
+  border-radius: $border-radius-md;
+  background-color: $color-blue;
+  color: #fff;
+  a {
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+ * WOOCOMMERCE WIDGET PRODUCTS
+ *
+ * Có trong trang "/home"
+ */
+.woowidget-products {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  .__header {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .__title {
+    h2 {
+      margin-bottom: 5px;
+      color: $color-primary;
+      text-transform: capitalize;
+    }
+  }
+  .__desc {
+    color: $color-text-gray;
+    p {
+      color: $color-text-gray;
+    }
+  }
+  .widget-title {
+    display: none;
+  }
+  .__list, .product_list_widget {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0 -15px;
+  }
+  .__item, li {
+    width: 25%;
+    padding: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+    list-style-type: none;
+  }
+  .__link, .woocommerce-loop-product__link {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: $border-radius-md;
+    background-color: #f5f5f5;
+    &:hover {
+      background-color: rgba($color: $color-primary, $alpha: 0.15);
+      text-decoration: none;
+      .__item_footer {
+        background-color: $color-primary;
+        color: #fff;
+      }
+      del {
+        .amount {
+          color: #fff;
+          border-right-color: #fff;;
+        }
+      }
+    }
+  }
+  .onsale {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2px 8px;
+    margin: 9px;
+    border-radius: $border-radius-sm;
+    background-color: $color-green;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .__item_image {
+    padding: 20px;
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      // max-height: 350px;
+      // height: 350px;
+      // object-fit: cover;
+      border-radius: $border-radius-md;
+    }
+  }
+  .__item_footer {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: calc(100% - 40px);
+      height: 1px;
+      background-color: rgba($color: #000, $alpha: 0.1);
+    }
+  }
+  .__name {
+    h4 {
+      font-weight: 400;
+    }
+  }
+  .__price_num, .amount {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  del {
+    .amount {
+      padding-right: 10px;
+      margin-right: 4px;
+      border-right: 1px solid $color-gray;
+      color: $color-gray;
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: line-through;
+      vertical-align: text-bottom;
+    }
+  }
+  .__instock {
+    display: inline-block;
+    padding: 3px 10px;
+    margin-left: 10px;
+    border-radius: 100px;
+    background-color: rgba($color: #000, $alpha: 0.25);
+    color: #fff;
+    font-size: 11px;
+    vertical-align: text-bottom;
+  }
+  .button, .add_to_cart_button {
+    display: none;
+  }
+
+  /** MEDIA **/
+  @include media(lg) {
+    .__item, li {
+      width: 33.3%;
+    }
+  }
+  @include media(md) {
+    .__item, li {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+  }
+  @include media(sm) {
+    .__item, li {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/** PRICE **/
+.woocommerce-Price-currencySymbol {
+  padding-left: 5px;
+  font-size: 0.8em;
+  vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * WOOCOMMERCE CART
+ * Có trong trang "/product-detail" (ở product summary)
+ */
+.cart {
+  margin-bottom: 20px;
+  table {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  tr {
+    border-bottom: 1px dashed #ccc;
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:nth-child(n + 2) {
+      padding: 5px 20px;
+    }
+  }
+  .quantity {
+    margin-bottom: 20px;
+    label {
+      display: none;
+    }
+    input[type=number] {
+      width: 300px;
+    }
+  }
+  .woocommerce-grouped-product-list-item__quantity {
+    width: 160px;
+    .quantity {
+      margin-bottom: 0;
+    }
+    input[type=number], input[type=text] {
+      width: 100%;
+    }
+  }
+  .woocommerce-grouped-product-list-item__price {
+    text-align: right;
+  }
+  input[type=submit], .button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    width: 300px;
+    padding: 17px 25px;
+    border-radius: $border-radius-sm;
+    border: 1px solid transparent;
+    background-color: rgba($color: #000, $alpha: 0.1);
+    color: #444;
+    box-shadow: none;
+    font-size: 16px;
+    transition: background 0.15s;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
+
+    /** BUTTON CHECKOUT **/
+    &.checkout-button {
+      background-color: $color-primary;
+      color: #fff;
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .quantity {
+      input[type=number] {
+        display: inline-block;
+        width: 220px;
+      }
+    }
+  }
+}
+
+
+/** PRODUCT RESULT COUNT **/
+.woocommerce-result-count {
+  display: none;
+}
+
+
+/** PRODUCT ORDERING **/
+.woocommerce-ordering {
+  display: none;
+  padding-top: 20px;
+  // text-align: right;
+  text-align: center;
+  select {
+    width: 360px;
+    width: calc(25% - 20px);
+  }
+
+  /** MEDIA **/
+  @include media(lg) {
+    select {
+      width: calc(33.3% - 20px);
+    }
+  }
+  @include media(md) {
+    select {
+      width: calc(50% - 20px);
+    }
+  }
+  @include media(xs) {
+    select {
+      width: 100%;
+    }
+  }
+}
+
+
+/** PRODUCT META **/
+.product_meta {
+  margin-bottom: 10px;
+  color: $color-text-gray;
+  line-height: 1.2;
+  // .sku_wrapper {
+  //   padding-right: 20px;
+  // }
+  .__separate {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+/** WOOCOMMERCE CART FORM **/
+// Có trong trang "/cart"
+// Có trong trang "/checkout"
+.woocommerce-cart-form {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  table {
+    width: 100%; 
+  }
+  th {
+    padding: 5px 10px;
+  }
+  td {
+    padding: 10px 10px !important;
+    max-width: 400px;
+  }
+  .product-remove {
+    a {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border-radius: 100px;
+      background-color: #ddd;
+      line-height: 30px;
+      text-align: center;
+      &:hover {
+        background-color: $color-primary;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+  .product-thumbnail {
+    img {
+      width: 85px;
+      height: auto;
+    }
+  }
+  .product-name {
+    text-align: left;
+  }
+  .product-quantity {
+    text-align: center;
+  }
+  .quantity {
+    margin-bottom: 0;
+    text-align: center;
+    input[type=text],
+    input[type=number] {
+      display: inline-block;
+      width: 120px;
+    }
+  }
+  .product-price {
+    color: #aaa;
+    text-align: center;
+  }
+  .product-subtotal {
+    text-align: center;
+  }
+  .actions {
+    padding-top: 40px;
+    text-align: center;
+  }
+  .__update_cart {
+    padding-top: 40px;
+  }
+  button[type=submit] {
+    display: inline-block;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .quantity {
+      input[type=text],
+      input[type=number] {
+        width: 60px;
+      }
+    }
+    .product-name {
+      display: none;
+    }
+    .product-price {
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/** COUPON **/
+.coupon {
+  display: flex;
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  label {
+    display: none;
+  }
+  input {
+    flex: 1;
+    margin-right: 10px;
+  }
+  button {
+    width: 200px;
+  }
+}
+.woocommerce-form-coupon-toggle {
+  display: none;
+}
+.woocommerce-form-coupon {
+  max-width: 1100px;
+  padding: 40px;
+  margin: 0 auto 60px;
+  border-radius: $border-radius-md;
+  background-color: #f5f5f5;
+  .form-input {
+    flex: none;
+  }
+  #coupon_code {
+    min-width: 300px;
+    border: 1px solid $color-gray;
+    background-color: #fff;
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+  
+  /** MEDIA **/
+  @include media(sm) {
+    margin-bottom: 40px;
+  }
+}
+
+
+/** CART COLLATERALS **/
+// Có trong trang "/cart"
+// Có trong trang "/checkout"
+.cart-collaterals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border-radius: $border-radius-md;
+  background-color: #f5f5f5;
+  .cart_totals {
+    width: 600px;
+  }
+  h2 {
+    display: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+    &::after {
+      display: none;
+    }
+  }
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  th, td {
+    padding: 10px 0;
+  }
+  td {
+    text-align: right;
+  }
+  .cart-subtotal {
+    border-bottom: 1px dashed #bbb;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .cart_totals {
+      width: auto;
+    }
+  }
+}
+
+body.woocommerce-checkout {
+  .cart-collaterals {
+    display: none;
+  }
+}
+
+
+/** BUTTON CHECKOUT **/
+.wc-proceed-to-checkout {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  a {
+    position: relative;
+    display: block;
+    min-width: 300px;
+    padding: 19px 30px 17px;
+    border-radius: $border-radius-md;
+    background-color: $color-primary;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .4s;
+    &:hover {
+      text-decoration: none;
+      background-color: #000;
+      color: #fff;
+    }
+  }
+  a:not([href]) {
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * WOOCOMMERCE ORDER
+ * Có trong trang "/checkout" - sau khi thanh toán xong
+ */
+.woocommerce-order {
+  .__inner {
+    padding: 30px 40px;
+    border-radius: $border-radius-md;
+    background-color: #f5f5f5;
+  }
+  .woocommerce-order-overview__order {
+    strong {
+      display: inline-block;
+      min-width: 120px;
+      padding: 2px 15px;
+      margin-left: 5px;
+      border-radius: $border-radius-sm;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+    }
+  }
+  .__h3 {
+    margin-bottom: 20px;
+  }
+
+  &.--message {
+    margin-bottom: 20px;
+    .__inner {
+      background-color: $color-blue;
+      color: #fff;
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .__inner {
+      padding: 20px 25px 25px;
+    }
+    // .__h2 {
+    //   font-size: 16px;
+    // }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * WOOCOMMERCE CHECKOUT
+ */
+.woocommerce-checkout {
+  &:not(body) {
+    &.--form1 {
+      .__inner {
+        display: flex;
+      }
+      .checkout-form {
+        width: 50%;
+        padding-right: 60px;
+      }
+      .checkout-review {
+        flex: 1;
+        padding-left: 60px;
+        border-left: 1px solid #ccc;
+      }
+    }
+
+    /** FORM STYLE 2 **/
+    &.--form2 {
+      max-width: 850px;
+      margin: 0 auto;
+      .checkout-form {
+        padding-bottom: 60px;
+      }
+    }
+
+    .alerts__inner {
+      margin-bottom: 20px;
+      border-radius: $border-radius-md;
+      background-color: $color-primary;
+      color: #fff;
+      .--list-errors {
+        display: none;
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+    .form-title {
+      min-width: 200px;
+    }
+
+    /** MEDIA **/
+    @include media(sm) {
+      &.--form1 {
+        .__inner {
+          display: block;
+        }
+        .checkout-form {
+          width: 100%;
+          padding-right: 0;
+        }
+      }
+      &.--form2 {
+        .checkout-form {
+          padding-bottom: 40px;
+        }
+      }
+      .checkout-review {
+        padding-left: 0;
+        border-left-width: 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+/** ORDER RECIEVED **/
+// Loại bỏ Cart section sau khi hoàn thành thanh toán (trường hợp Cart + Checkout chung 1 page)
+.woocommerce-order-received {
+  .cart-empty {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+ * CHECKOUT FORM
+ */
+.checkout-form {
+  h3 {
+    margin-top: 0;
+  }
+  .woocommerce-additional-fields {
+    h3 {
+      display: none;
+    }
+  }
+  .__checkout_billing {
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    padding-bottom: 40px;
+    .form-group, .form-row {
+      display: block;
+    }
+    .form-title {
+      display: block;
+      min-width: 0;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+ * CHECKOUT REVIEW
+ */
+.checkout-review {
+  h3 {
+    margin-top: 0;
+  }
+  #order_review {
+    padding: 30px 40px 40px;
+    border-radius: $border-radius-md;
+    background-color: #f5f5f5;
+  }
+  table {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  tr {
+    border-bottom: 1px solid #ccc;
+  }
+  th {
+    white-space: nowrap;
+  }
+  th, td {
+    padding: 10px 10px;
+    &:nth-child(n + 2) {
+      text-align: right;
+    }
+  }
+  .woocommerce-terms-and-conditions {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: $border-radius-md;
+    border: 1px solid $color-gray;
+    background-color: #fff;
+  }
+  .woocommerce-checkout-payment {
+    ul {
+      padding-left: 0;
+    }
+    li {
+      list-style-type: none;
+    }
+  }
+  .btn {
+    margin-top: 60px;
+    margin-bottom: 0;
+  }
+  .tax_label {
+    display: none;
+  }
+  .includes_tax {
+    display: none;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    #order_review {
+      padding: 20px 25px 25px;
+    }
+    .btn {
+      margin-top: 40px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * WOOCOMMERCE ORDER DETAIL
+ */
+.woocommerce-order-details {
+  display: none;
+}
+
+.woocommerce-customer-details {
+  display: none;
+}
+
+.woocommerce-privacy-policy-text {
+  display: none;
+}
+
+.cart-empty {
+  // display: none;
+}
+
+.wc_payment_methods {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * WOOCOMMERCE OTHERS
+ */
+.return-to-shop {
+  .btn {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+.woocommerce-store-notice {
+  display: none !important;
+}
+.processing {
+  .blockOverlay {
+    opacity: 0.75 !important;
+    background-image: url(./imgs/icon-ripple-1s.svg) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100px 100px !important;
+    background-position: center !important;
+  }
+}
+.tax_label {
+  display: block;
+  color: #aaa;
+  white-space: nowrap;
+}
+.includes_tax {
+  display: block;
+  font-size: 1em;
+  white-space: nowrap;
+}
+.tax_note {
+  display: block;
+  font-weight: 400;
+}
+
+
+/** MEDIA **/
+@include media(md) {
+  .wc-forward {
+    display: block;
+  }
+}

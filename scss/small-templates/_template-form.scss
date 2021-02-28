@@ -1,0 +1,175 @@
+/**
+ * TEMPLATE FORM
+ */
+.template-form {
+  margin-bottom: 50px;
+  .form__group {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .form__title {
+    min-width: 300px;
+    label {
+      padding: 14px 0;
+    }
+  }
+  .form__row {
+    flex: 1;
+    display: flex;
+  }
+  .form__field {
+    flex: 1;
+  }
+  .form__dummy {
+    &.form--select {
+      flex: none;
+      width: 400px;
+    }
+  }
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=url],
+  input[type=number],
+  textarea {
+    width: 100%;
+  }
+  select {
+    min-width: 400px;
+  }
+  .form__spacer {
+    margin-bottom: 70px;
+    &.--sm {
+      margin-bottom: 50px;
+    }
+  }
+  .form__spacer_line {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    border-top: 1px dashed #999;
+  }
+  .form__text {
+    color: #999;
+  }
+  .form__back {
+    margin-right: 10px;
+    input[type=button] {
+      -webkit-appearance: none;
+      appearance: none;
+      position: relative;
+      display: block;
+      min-width: 120px;
+      padding: 18px 24px;
+      border-radius: 8px;
+      border-width: 0;
+      background-color: #e5e5e5;
+      // color: #fff;
+      color: #999;
+      text-decoration: none !important;
+      transition: background .2s;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        text-decoration: none;
+        background-color: $color-primary-dark;
+        color: #fff;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  /** File upload **/
+  .codedropz-upload-handler {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px dashed #aaa;
+  }
+  .codedropz-upload-container {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+  }
+  .codedropz-upload-inner {
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 0;
+      color: #333;
+    }
+    a.cd-upload-btn, span {
+      font-size: 1.4rem;
+      color: #999;
+    }
+  }
+  .dnd-upload-counter {
+    right: 15px;
+    bottom: 10px;
+    font-size: 9px;
+    color: #999;
+  }
+  .dnd-upload-status {
+    .dnd-upload-details {
+      .name {
+        color: #666;
+        em {
+          font-size: 1.4rem;
+          line-height: 2;
+        }
+      }
+      .dnd-progress-bar {
+        span {
+          padding: 0 5px;
+          background-color: $color-primary;
+          font-size: 9px;
+        }
+      }
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    margin-bottom: 30px;
+    .form__group {
+      display: block;
+    }
+    .form__title {
+      margin-bottom: 5px;
+      label {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    .form__dummy {
+      &.form--select {
+        float: 1;
+        width: auto;
+      }
+    }
+    select {
+      min-width: 100%;
+    }
+    .form__spacer {
+      margin-bottom: 50px;
+      &.--sm {
+        margin-bottom: 30px;
+      }
+    }
+    .form__spacer_line {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .form__back {
+      input[type=button] {
+        min-width: auto;
+      }
+    }
+    .btn__submit {
+      flex: 1;
+      button {
+        min-width: auto;
+      }
+    }
+  }
+}

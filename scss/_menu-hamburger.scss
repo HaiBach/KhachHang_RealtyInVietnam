@@ -1,0 +1,106 @@
+/** MENU HAMBURGER **/
+$hamburger-color: #666;
+$hamburger-color-actived: #666;
+.hamburger {
+  display: block;
+  min-width: 50px;
+  padding: 11px 11px;
+  border-radius: 8px;
+  text-align: center;
+  .hamburger__link {
+    min-width: 32px;
+    padding: 6px 15px;
+    color: $hamburger-color;
+    text-align: center;
+    box-sizing: content-box;
+    outline: none;
+  }
+  .hamburger__deco {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    &::before, > span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 2px;
+      margin-left: -12px;
+      margin-top: 2px;
+    }
+    &::before {
+      content: '';
+      border-radius: 4px;
+      background-color: $hamburger-color;
+      transition: transform .2s cubic-bezier(.68,-.55,.265,1.55);
+    }
+    > span {
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 4px;
+        background-color: $hamburger-color;
+        transition: transform .2s cubic-bezier(.68,-.55,.265,1.55);
+      }
+      &::before {
+        margin-top: -7px;
+      }
+      &::after {
+        margin-top: 7px;
+      }
+    }
+  }
+  .hamburger__text {
+    display: block;
+    margin-top: -5px;
+    font-size: 9px;
+    font-weight: 700;
+    &::before {
+      content: attr(data-menu);
+    }
+  }
+
+  &.rm01push {
+    background-color: #e5e5e5;
+    .hamburger__deco {
+      &::before {
+        transform: scale(0);
+      }
+      > span {
+        &::before, &::after {
+          // background-color: #fff;
+        }
+        &::before {
+          transform: translate3d(0, 7px, 0) rotate(45deg) scaleX(0.7);
+        }
+        &::after {
+          transform: translate3d(0, -7px, 0) rotate(-45deg) scaleX(0.7);
+        }
+      }
+    }
+    .hamburger__text {
+      letter-spacing: 0;
+      &::before {
+        content: attr(data-close);
+      }
+    }
+  }
+  &.rm01show {
+    // display: block;
+  }
+}
+
+.fixed-actived {
+  .hamburger {
+    /** MEDIA **/
+    @include media(sm) {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}

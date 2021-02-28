@@ -1,0 +1,320 @@
+/**
+ * MENU DRAWER
+ * Menu dành cho Mobile (SP)
+ */
+$nav-fx-duration: 0.1s;
+.rm01drawer {
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: block;
+  height: 0;
+  a {
+    :not(href) {
+      cursor: pointer;
+    }
+  }
+  .menu__inner {
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    -webkit-backdrop-filter: saturate(180%) blur(30px);
+    backdrop-filter: saturate(180%) blur(30px);
+  }
+  .rm01menu {
+    display: block;
+    margin-bottom: 0;
+    padding-left: 0;
+    .rm01menu {
+      display: none;
+      width: 100%;
+    }
+  }
+  .rm01list {
+    display: block;
+    padding: 12px;
+    a {
+      position: relative;
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 1.5rem;
+      text-decoration: none;
+      border-radius: 8px;
+      i {
+        display: inline-block;
+        height: 16px;
+        font-size: 0.7em;
+        font-weight: 400;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 4px);
+        right: -20px;
+        display: none; // Lúc đầu ẩn
+        width: 8px;
+        height: 8px;
+        border-radius: 100px;
+        background-color: #333;
+      }
+      &:hover {
+        background-color: rgba($color: #000, $alpha: 0.15);
+        color: #000;
+      }
+    }
+  }
+
+  /** MENU LIST LV 1 **/
+  .rm01list-lv1 {
+    /** MENU CURRENT **/
+    &.current-menu-item,
+    &.current-menu-parent,
+    &.current-category-ancestor,
+    &.current-page-ancestor {
+      > .rm01link > a {
+        &::after {
+          display: block;
+        }
+      }
+    }
+  }
+
+  /** MENU LIST LV 2 **/
+  .rm01list-lv2 {
+    > .rm01link {
+      a {
+        margin-left: 24px;
+      }
+    }
+    /** MENU CURRENT **/
+    &.current-menu-item,
+    &.current-menu-parent,
+    &.current-category-ancestor,
+    &.current-page-ancestor {
+      > .rm01link > a {
+        &::after {
+          display: block;
+          background-color: rgba($color: #000, $alpha: 0.5);
+        }
+      }
+    }
+  }
+  .rm01ghost {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    > .rm01list {
+      a {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+  .rm01link {
+    position: relative;
+  }
+
+  /** MENU CARET **/
+  // Hiển thị icon biểu hiện menu có các menu con
+  .rm01caret {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: rgba($color: #000, $alpha: 0.05);
+    color: rgba($color: #000, $alpha: 0.5);
+    text-align: center;
+    z-index: 99;
+    cursor: pointer;
+    &::before {
+    @include icomoon();
+      content: '\e917';
+      padding-left: 4px;
+      font-size: 10px;
+      line-height: 48px;
+    }
+    &:hover {
+      background-color: rgba($color: #000, $alpha: 0.15);
+      color: #000;
+    }
+  }
+  
+  /** MENU PUSH **/
+  // Khi menu drawer bắt đầu hiển thị
+  &.rm01push {
+    overflow: visible;
+    height: auto; // Show Nav menu
+    .rm01list {
+      > .rm01link {
+        opacity: 0;
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+      }
+      &:nth-child(1) .rm01link {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) .rm01link {
+        animation-delay: 0.05s;
+      }
+      &:nth-child(3) .rm01link {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(4) .rm01link {
+        animation-delay: 0.15s;
+      }
+      &:nth-child(5) .rm01link {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(6) .rm01link {
+        animation-delay: 0.25s;
+      }
+      &:nth-child(7) .rm01link {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(8) .rm01link {
+        animation-delay: 0.35s;
+      }
+      &:nth-child(9) .rm01link {
+        animation-delay: 0.4s;
+      }
+      &:nth-child(10) .rm01link {
+        animation-delay: 0.45s;
+      }
+    }
+    .rm01list-lv1 {
+      > .rm01link {
+        opacity: 0;
+        animation-name: animate-slideToLeft;
+      }
+    }
+    .rm01list-lv2 {
+      > .rm01link {
+        opacity: 0;
+        animation-name: animate-slideToRight;
+      }
+    }
+
+    /** BACKROUND OVERLAY **/
+    // Tấm nền che nội dung ở phía dưới
+    &::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      min-height: calc(100vh - 70px);
+      right: 0;
+      background-color: rgba($color: #fff, $alpha: 0.25);
+      -webkit-backdrop-filter: saturate(180%) blur(30px);
+      backdrop-filter: saturate(180%) blur(30px);
+    }
+  }
+
+  /** MENU OPEN **/
+  // Menu parent mở các menu con ở bên trong
+  .rm01menu {
+    &.rm01open {
+      > .rm01list {
+        display: none;
+        &.rm01open {
+          display: block;
+          > .rm01link {
+            display: none;
+          }
+          > .rm01menu {
+            display: block;
+          }
+        }
+      }
+    }
+    &.rm01fx-open {
+      animation: rm01open-slideOut $nav-fx-duration;
+    }
+    &.rm01fx-closed {
+      animation: rm01closed-slideOut $nav-fx-duration;
+    }
+  }
+  .rm01list.rm01open {
+    padding: 0;
+  }
+
+  /* Restore style menu */
+  .rm01ghost {
+    &.rm01fx-open {
+      animation: rm01open-slideIn $nav-fx-duration;
+    }
+    &.rm01fx-closed {
+      animation: rm01closed-slideIn $nav-fx-duration;
+    }
+  }
+
+  /** BUTTON BACK TO MENU **/
+  .rm01linkback {
+    font-weight: 700;
+    border-bottom: none;
+    background-color: rgba($color: #000, $alpha: 0.05);
+    line-height: 1.3;
+  }
+  .rm01arrowback {
+    padding-right: 10px;
+    font-size: 1.8rem;
+  }
+
+
+  /** MEDIA FOR PC **/
+  @media(min-width: 768px) {
+    top: calc(100% + 10px);
+    .menu__inner {
+      width: 350px;
+      padding: 1px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+
+  /** MEDIA FOR SP **/
+  @include media(sm) {
+    .menu__inner {
+      overflow: scroll;
+      width: 100vw;
+      height: calc(100vh - 50px);
+    }
+    &.rm01push {
+      width: 100%;
+      &::before {
+        display: none;
+      }
+      .menu__inner {
+        &::before {
+          border-radius: 0;
+        }
+      }
+      .menu-links {
+        > .rm01menu {
+          > .rm01list {
+            .rm01link {
+              // animation: animate-slideToLeft 0.4s forwards;
+              animation-name: animate-slideToLeft;
+              animation-duration: 0.4s;
+              animation-fill-mode: forwards;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Thiết lập style custom để hỗ trợ vị trí Menu Drawer trên PC
+html.rm01push {
+  @media (min-width: 768px) {
+    overflow: hidden;
+  }
+}
+.main-navigation {
+  @media (min-width: 768px) {
+    position: relative;
+  }
+}
+

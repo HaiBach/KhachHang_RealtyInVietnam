@@ -1,0 +1,117 @@
+/**
+ * ITEM BLOG
+ * Thiết lập Item Blog & News
+ */
+.item-blog {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+  .item__inner {
+    position: relative;
+    border-radius: 15px;
+    background-color: #F5F5F5;
+  }
+  .item__link {
+    display: block;
+    text-decoration: none;
+    /** Đối tượng trang trí cho item focus **/
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 1px 6px rgba($color: $color-primary, $alpha: 0.25);
+      transition: all 0.2s;
+      opacity: 0;
+    }
+  }
+  .item__thumbnail {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+    z-index: 2;
+    img {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .item__img_holder {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .wp-post-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .item__body {
+    padding: 18px 20px;
+  }
+  .item__title {
+    margin-bottom: 15px;
+    a {
+      text-decoration: none;
+    }
+  }
+  .item__excerpt {
+    p {
+      overflow: hidden;
+      max-height: 50px;
+      text-overflow: ellipsis;
+    }
+  }
+  .item__info {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 1.2rem;
+  }
+  .item__date {
+    padding-right: 12px;
+  }
+  .item__type {
+    text-transform: capitalize;
+  }
+  .item__footer {
+    background-color: rgba($color: #000, $alpha: 0.03);
+    a, button {
+      border-radius: 0;
+      font-size: 1.4rem;
+    }
+  }
+
+  /** ITEM HOVER **/
+  .item__link:hover {
+    // background-color: rgba($color: $color-primary, $alpha: 0.1);
+    background-color: #fff;
+    color: #000;
+    &::after {
+      opacity: 1;
+    }
+    .item__id {
+      background-color: #fff;
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 20px;
+    .item__inner {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+}

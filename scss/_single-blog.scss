@@ -1,0 +1,318 @@
+/**
+ * PAGE SINGLE BLOG
+ * Thiết lập custom style cho trang Single
+ */
+.page-single.--single-blog {
+  #breadcrumb {
+    ul > li:last-child {
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * SINGLE FOR BLOG
+ * Lấy tên là v-blog để không trùng class trên body.single-blog
+ */
+$single-width: 800px;
+.single-v-blog {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .__header {
+    max-width: $single-width;
+    margin: 0 auto;
+  }
+  .__title {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .__header_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .__header_left {
+    display: flex;
+    align-items: center;
+  }
+  .__header_right {
+    display: flex;
+    align-content: center;
+  }
+  .__icon {
+    padding-left: 10px;
+    color: rgba($color: #000, $alpha: 0.5);
+    font-size: 24px;
+    &:hover {
+      color: $color-primary;
+    }
+    &.--facebook {
+      &:hover {
+        color: $color-facebook
+      }
+    }
+    &.--bookmark {
+      display: none;
+    }
+    // Style button chia sẽ Facebook
+    a {
+      font-size: 13px;
+    }
+    .fb-share-button {
+      display: flex;
+    }
+  }
+  .__avatar {
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    margin-right: 12px;
+    border-radius: 100px;
+    border: 1px solid rgba($color: #000, $alpha: 0.25);
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .__name {
+    color: $color-primary;
+    font-weight: 700;
+  }
+  .__date {
+    color: $color-text-gray;
+    font-size: 0.9em;
+  }
+  .__thumbnail {
+    overflow: hidden;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  /** STYLE CONTENT SINGLE **/
+  .__text {
+    max-width: $single-width;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    font-size: 18px;
+    // text-align: justify;
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 2em;
+      margin-bottom: 0.7em;
+    }
+    p {
+      font-size: 18px;
+      }
+    blockquote {
+      position: relative;
+      padding-left: 55px;
+      padding-right: 40px;
+      margin: 20px 0;
+      &::before, &::after {
+        @include icomoon();
+        content: '\e902';
+        position: absolute;
+        color: #000;
+        opacity: 0.75;
+      }
+      &::before {
+        left: -10px;
+        top: -13px;
+        font-size: 2em;
+      }
+      &::after {
+        bottom: 0;
+        right: -5px;
+        transform: rotate(180deg);
+      }
+    }
+    figure {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      &.alignfull {
+        width: 1110px;
+        margin-left: -155px;
+      }
+    }
+    figcaption {
+      padding-top: 10px;
+      color: $color-text-gray;
+      font-size: 15px;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    // Ẩn button like trong content single
+    .likebtn_container {
+      display: none;
+    }
+  }
+  .__excerpt {
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  .__tags {
+    a {
+      display: inline-block;
+      padding: 5px 15px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      border-radius: 100px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      color: $color-text-gray;
+      font-size: 14px;
+      text-decoration: none;
+      text-transform: capitalize;
+      white-space: nowrap;
+      &:hover {
+        border-color: $color-primary;
+        background-color: $color-primary;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+  .__footer {
+    max-width: $single-width;
+    margin: 0 auto;
+  }
+  .__footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 15px;
+    border-top: 1px solid #ccc;
+  }
+  .__like_icon {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    line-height: 42px;
+    border-radius: 100px;
+    border: 1px solid rgba($color: #000, $alpha: 0.5);
+    text-align: center;
+    [class*="icon-"] {
+      font-size: 22px;
+    }
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+  .__like_num {
+    padding-left: 10px;
+    color: $color-text-gray;
+    font-size: 14px;
+  }
+
+  .__comments {
+    max-width: $single-width;
+    margin: 0 auto;
+    .btn {
+      [class*="icon-"] {
+        font-size: 18px;
+      }
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .__header {
+      width: 100%;
+    }
+    .__title {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    .__avatar {
+      width: 52px;
+      height: 52px;
+    }
+    .__header_info {
+      margin-bottom: 35px;
+    }
+    .__thumbnail {
+      // margin-bottom: 20px;
+      margin: 0 -12px 20px;
+      border-radius: 0;
+    }
+    .__text {
+      padding-bottom: 40px;
+      width: 100%;
+      font-size: 15px;
+      h2 {
+        font-size: 2.4rem;
+      }
+      h3 {
+        font-size: 1.8rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 15px;
+      }
+      blockquote {
+        padding-left: 32px;
+        padding-right: 22px;
+        &::before {
+          left: -5px;
+          top: -3px;
+          font-size: 1.4em;
+        }
+      }
+      figure {
+        margin-top: 25px;
+        margin-bottom: 20px;
+        &.alignfull {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+      figcaption {
+        padding-top: 5px;
+        font-size: 13px;
+        text-align: left;
+      }
+      img {
+        border-radius: 8px;
+      }
+      ol, ul, dl {
+        padding-left: 25px;
+      }
+    }
+    .__tags {
+      a {
+        padding: 3px 12px;
+        font-size: 1.2rem;
+      }
+    }
+    .__footer {
+      width: 100%;
+    }
+    .__comments {
+      width: 100%;
+    }
+  }
+}

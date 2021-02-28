@@ -1,0 +1,154 @@
+/**
+ * SECTION PROPERTY RECENT
+ */
+.project-recent {
+  overflow: hidden;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  .topic-h2 {
+    margin-bottom: 50px;
+  }
+  .__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .__item {
+    width: 20%; 
+  }
+  .rs01.rs01tabs {
+    .rs01viewport {
+      overflow: visible;
+    }
+    .rs01pag {
+      margin-bottom: 40px;
+      .rs01pagitem {
+        min-width: 50px;
+        padding: 7px 18px;
+        margin-left: 4px;
+        margin-right: 4px;
+        border-radius: 100px;
+        border: 1px solid #ccc;
+        color: #666;
+        text-align: center;
+        &:hover {
+          background-color: #e5e5e5;
+          color: #000;
+        }
+        &.rs01cur {
+          border-color: $color-primary;
+          background-color: $color-primary;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .topic-h2 {
+      margin-bottom: 30px;
+    }
+    .__items {
+      margin-left: -6px;
+      margin-right: -6px;
+    }
+    .__item {
+      width: 50%; 
+    }
+    .rs01.rs01tabs {
+      .rs01pag {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+ * ITEM PROJECT
+ * Thiết lập style cho Item Project
+ */
+.item-project {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+  .item__inner {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+  }
+  .item__thumbnail {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(255,255,255,0) 80%);
+      transition: background 0.4s;
+    }
+  }
+  .item__img_holder {
+    width: 100%;
+    height: auto;
+  }
+  .item__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .item__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 25px 40px;
+    color: #fff;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .item__name {
+    display: block;
+  }
+  .item__district {
+    display: block;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid rgba($color: #fff, $alpha: 0.5);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+  /** ITEM HOVER **/
+  .item__link:hover {
+    .item__info {
+      transform: translate3d(0, -30%, 0);
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 12px;
+    .item__info {
+      padding-bottom: 30px;
+    }
+  }
+}

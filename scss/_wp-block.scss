@@ -1,0 +1,214 @@
+/**
+ * BUTTON
+ */
+.wp-block-button {
+  display: flex;
+  justify-content: center;
+  a, button {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    display: block;
+    padding: 14px 30px;
+    border-radius: 8px;
+    border-width: 0;
+    background-color: #eee;
+    color: #333;
+    font-size: 1.4rem;
+    // font-weight: 700;
+    text-decoration: none !important;
+    transition: background .2s;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+      background-color: #f5f5f5;
+      color: #000;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  a:not([href]) {
+    color: #333;
+    cursor: pointer;
+    &:hover {
+      color: #000;
+    }
+  }
+  i {
+    font-size: 0.8em;
+  }
+
+  &.btn--gradient {
+    a {
+      padding: 12px 30px 13px;
+      border-radius: 100px;
+      background: linear-gradient(66deg, #70e0ff 0%, #708afd 100%);
+      font-family: $font-alter;
+      font-size: 21px;
+      line-height: 1.2;
+      text-align: center;
+      &:hover {
+        background: #000 !important;
+      }
+    }
+  }
+  &.btn--link {
+    a {
+      padding: 0;
+      background: transparent;
+      color: #000;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  
+  &.btn--center {
+    justify-content: center;
+  }
+  &.btn--bold {
+    a {
+      font-weight: 700;
+    }
+  }
+  
+  &.btn--xs {
+    a {
+      padding: 5px 20px;
+    }
+  }
+  &.btn--md {
+    a {
+      min-width: 250px;
+      padding: 24px 30px;
+    }
+  }
+  &.btn--lg {
+    a {
+      min-width: 480px;
+      padding: 25px 50px;
+      font-size: 30px;
+      font-weight: 500;
+    }
+    .small {
+      font-size: 0.5em;
+      font-weight: 400;
+    }
+  }
+  &.btn--block {
+    a {
+      width: 100%;
+    }
+  }
+
+  &.btn--min350 {
+    a {
+      min-width: 350px;
+    }
+  }
+  &.btn--min500 {
+    a {
+      min-width: 500px;
+    }
+  }
+
+  &.btn--outline {
+    a {
+      border-radius: 100px;
+      border: 1px solid #000;
+      background: transparent;
+      color: #000;
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  .small {
+    font-size: 0.8em;
+  }
+  [class*=icon-] {
+    padding-right: 8px;
+    &.icon--inline-right {
+      padding-left: 12px;
+    }
+    &.icon--inline-left {
+      padding-left: 0;
+      padding-right: 8px;
+    }
+    &.icon--right {
+      position: absolute;
+      top: calc(50% - 5px);
+      right: 20px;
+    }
+    &.icon--sm {
+      font-size: 0.6em;
+    }
+    &.icon--xs {
+      font-size: 0.4em;
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    a {
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    &.btn-md {
+      a {
+        width: 100%;
+        padding: 20px 20px;
+        font-size: 1.4rem;
+      }
+    }
+    &.btn--lg {
+      a {
+        min-width: auto;
+        width: 100%;
+        padding: 15px 15px;
+        font-size: 24px;
+        line-height: 1.4;
+      }
+      .small {
+        font-size: 0.6em;
+      }
+    }
+    .small {
+      font-size: 0.8em;
+    }
+
+    &.btn--min350 {
+      a {
+        min-width: 300px;
+      }
+    }
+    &.btn--min500 {
+      a {
+        min-width: 100%;
+      }
+    }
+    &.btn--block-sp {
+      min-width: 100%;
+      a {
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+
+
+
+/** STYLE TYPOGRAPHY **/
+.has-text-align-center {
+  text-align: center;
+}
+has-text-align-right {
+  text-align: right;
+}

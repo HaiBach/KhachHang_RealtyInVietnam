@@ -1,0 +1,187 @@
+/**
+ * LAYOUT VERTICAL
+ * Thiết lập chung cho site có layout vertical
+ */
+ .site-vertical {
+  #main-primary {
+    overflow: hidden;
+    display: flex;
+  }
+  #aside-menu {
+    width: 280px;
+    margin: 50px 70px 100px 0;
+  }
+  #main-content {
+    flex: 1;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .topic-h2 {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+  #breadcrumb {
+    padding-top: 0;
+    padding-bottom: 0;
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    #aside-menu {
+      display: none;
+    }
+    #main-content {
+      margin-top: 0;
+      margin-bottom: 30px;
+      .topic-h2 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * PAGE V CONTENT
+ * Thiết lập nội dung cho trang, thứ tự nội dung
+ */
+.page-v-content {
+  
+  /** CONTENT BOTTOM **/
+  &.--is-bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    .v-content {
+      padding-top: 50px;
+      margin-bottom: 50px;
+      border-top: 1px dashed #999;
+    }
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    &.--is-bottom {
+      .template-one-column {
+        margin-bottom: 20px;
+      }
+      .v-content {
+        padding-top: 30px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * PAGE V COLUMNS
+ * Thiết lập riêng cho trang template columns
+ */
+.page-v-columns {
+  .v-content {
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * TEMPLATE FAETURED IMAGE
+ */
+.template-thumbnail {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    margin: 0 -12px 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ * VERTICAL CONTENT
+ */
+.v-content {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+  }
+  p {
+    font-size: 1.8rem;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    padding-left: 12px;
+    padding-right: 12px;
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+/** THỨ TỰ KHI TRANG CÓ V-CONTENT VÀ CÁC THÀNH PHẦN KHÁC **/
+// Ví dụ: Áp dụng cho trang Recruit -> cần nhiều khoảng cách giữa các section hơn
+.v-content {
+  ~ .template-accordion {
+    margin-top: 100px;
+  }
+  ~ .template-process {
+    margin-top: 100px;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    ~ .template-accordion {
+      margin-top: 50px;
+    }
+    ~ .template-process {
+      margin-top: 50px;
+    }
+  }
+}

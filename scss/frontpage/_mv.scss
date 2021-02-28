@@ -1,0 +1,217 @@
+/**
+ * HOME MV
+ */
+.home-mv {
+  position: relative;
+  .__image {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      // height: 100%;
+      // width: 100vw;
+      height: 650px;
+      object-fit: cover;
+    }
+  }
+  .__search {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 650px;
+    .__left {
+      flex: 1;
+      padding-right: 40px;
+    }
+    .__right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 260px;
+    }
+  }
+  .form__inner {
+    display: flex;
+    padding: 40px 40px 25px;
+    border-radius: 20px;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    -webkit-backdrop-filter: saturate(180%) blur(30px);
+    backdrop-filter: saturate(180%) blur(30px);
+  }
+  .form__group {
+    margin-bottom: 15px;
+    &.--ranger {
+      padding: 15px 24px;
+      border-radius: 10px;
+      background-color: #fff;
+      .form__title {
+        min-width: auto;
+        padding-left: 10px;
+        padding-right: 30px;
+      }
+      label {
+        margin-bottom: 5px;
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+    }
+  }
+  .form__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .form__field {
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .btn {
+    a, button {
+      width: 100%;
+    }
+  }
+  input[type="text"], select {
+    width: 100%;
+    background-color: #fff;
+  }
+
+  /** MEDIA **/
+  @include media(sm) {
+    .form__inner {
+      display: block;
+      padding: 6px 12px;
+      margin-left: -12px;
+      margin-right: -12px;
+      border-radius: 0;
+    }
+    .form__group {
+      padding: 6px 0;
+      margin-bottom: 0;
+    }
+    .form__row {
+      margin-left: -6px;
+      margin-right: -6px;
+    }
+    .form__field {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    .__search {
+      min-height: calc(100vh - 89px); // 89px là chiều cao của #masthead
+      .__left {
+        padding-right: 0;
+      }
+    }
+    .form__group {
+      &.--ranger {
+        padding: 12px 18px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        .form__row {
+          display: block;
+        }
+        .form__title {
+          display: none;
+        }
+      }
+    }
+    .__title_deco {
+      img {
+        display: block;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    }
+    .__btn_toggle {
+      margin-top: 20px;
+      margin-bottom: 50px;
+      a, button {
+        width: auto;
+        min-width: 180px;
+        border: 1px solid rgba($color: #fff, $alpha: 0.5);
+        background-color: rgba($color: #fff, $alpha: 0.25);
+        -webkit-backdrop-filter: saturate(180%) blur(30px);
+        backdrop-filter: saturate(180%) blur(30px);
+      }
+    }
+  }
+}
+
+
+/** MV STYLE 2 **/
+.home-mv.--style2 {
+  .__search {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: auto;
+    background-color: #f5f5f5;
+  }
+  .form__inner {
+    background-color: #fff;
+  }
+  input[type="text"], select {
+    // border-color: #ccc;
+    background-color: rgba($color: #000, $alpha: 0.05);
+    &:focus {
+      // border-color: $color-primary;
+      background-color: #fff;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+ * RANGER SLIDER
+ */
+.--ranger {
+  .irs-handle {
+    top: 19px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    background-color: $color-primary;
+    > i:first-child {
+      display: none;
+    }
+  }
+  .irs-line {
+    top: 27px;
+    height: 8px;
+  }
+  .irs-bar {
+    top: 27px;
+    height: 8px;
+    background-color: $color-primary;
+  }
+  .irs-from, .irs-to {
+    background-color: $color-primary;
+    &::before {
+      border-top-color: $color-primary;
+    }
+  }
+  .irs-min, .irs-max {
+    display: none;
+  }
+  .irs--flat .irs-single {
+    background-color: $color-primary;
+    &::before {
+      border-top-color: $color-primary;
+    }
+  }
+}
