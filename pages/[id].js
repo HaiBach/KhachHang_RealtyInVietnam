@@ -105,7 +105,7 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          id: 'support'
+          id: 'test'
         }
       },
       // {
